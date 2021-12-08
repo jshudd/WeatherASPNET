@@ -12,5 +12,9 @@
 
   <ItemGroup>
     <None Remove="Newtonsoft.Json" />
+    <None Remove="Views\Weather\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Weather\" />
   </ItemGroup>
 </Project>

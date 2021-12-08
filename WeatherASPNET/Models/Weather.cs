@@ -8,19 +8,19 @@ namespace WeatherASPNET.Models
         }
 
         public string ZipCode { get; set; }
+        public string APIResponse { get; set; }
         public Coord Coordinate { get; set; }
-        public string WxMainDesc { get; set; }
+        public string WxCondition { get; set; }
         public string WxDescription { get; set; }
         public double Temp { get; set; }
         public double FeelsLike { get; set; }
         public double TempMax { get; set; }
         public double TempMin { get; set; }
         public double Pressure { get; set; }
-        public int Humidity { get; set; }
-        public int Visibility { get; set; }
+        public double Humidity { get; set; }
+        public double Visibility { get; set; }
         public double WindSpeed { get; set; }
-        public double WindDeg { get; set; }
-        public double WindGust { get; set; }
         public string City { get; set; }
+        public string Country { get; set; }
     }
 }

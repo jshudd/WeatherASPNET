@@ -5,8 +5,6 @@ namespace WeatherASPNET
 {
     public interface IWeatherRepo
     {
-        public string GetAPIResponse(string zipCode);
-
-        public Weather ParseResponse(string response);
+        public Weather GetAPIResponse(string zipCode);
     }
 }
