@@ -7,7 +7,7 @@ namespace WeatherASPNET.Models
         {
         }
 
-        public int ZipCode { get; set; }
+        public string ZipCode { get; set; }
         public Coord Coordinate { get; set; }
         public string WxMainDesc { get; set; }
         public string WxDescription { get; set; }
