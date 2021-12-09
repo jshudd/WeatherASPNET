@@ -44,6 +44,15 @@ namespace WeatherASPNET
             weather.City = JObject.Parse(weather.APIResponse)["name"].ToString();
             weather.Country = JObject.Parse(weather.APIResponse)["sys"]["country"].ToString();
 
+            //calculate Sunrise & Sunset
+            var sunrise = long.Parse(JObject.Parse(weather.APIResponse)["sys"]["sunrise"].ToString());
+            var sunriseOffset = DateTimeOffset.FromUnixTimeSeconds(sunrise);
+            weather.Sunrise = sunriseOffset.DateTime;
+
+            var sunset = long.Parse(JObject.Parse(weather.APIResponse)["sys"]["sunset"].ToString());
+            var sunsetOffset = DateTimeOffset.FromUnixTimeSeconds(sunset);
+            weather.Sunset = sunsetOffset.DateTime;
+
             return weather;
         }
     }
