@@ -27,8 +27,14 @@ namespace WeatherASPNET.Controllers
             {
                 return View(weather);
             }
-
-            weather = repo.GetAPIResponse(zipCode);
+            try
+            {
+                weather = repo.GetAPIResponse(zipCode);
+            }
+            catch (AggregateException ex)
+            {
+                return RedirectToAction("Index", "Weather");
+            }
 
             return View(weather);
         }

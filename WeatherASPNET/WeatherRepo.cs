@@ -24,7 +24,7 @@ namespace WeatherASPNET
             var apiCall = $"https://api.openweathermap.org/data/2.5/weather?zip={zipCode}&units=imperial&appid={_conn}";
 
             weather.APIResponse = client.GetStringAsync(apiCall).Result;
-            
+                        
             var coord = new Coord();
             coord.Latitude = double.Parse(JObject.Parse(weather.APIResponse)["coord"]["lat"].ToString());
             coord.Longitude = double.Parse(JObject.Parse(weather.APIResponse)["coord"]["lon"].ToString());
