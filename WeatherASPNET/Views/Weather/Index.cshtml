@@ -7,10 +7,11 @@
 <div class="text-center">
     <h1 class="display-4">Get Current Weather</h1>
     <p>Enter your Zip Code below to get the current weather.</p>
+    <p>(this is Index.cshtml)</p>
 </div>
 
 <div>
-    @using (Html.BeginForm("Weather", "Weather", FormMethod.Get))
+    @using (Html.BeginForm("Index", "Weather", FormMethod.Get))
     {
         <label asp-for="ZipCode" class="control-label">Zip Code</label>
 
@@ -21,9 +22,9 @@
     }
 </div>
 <br />
-<div>
+<div class="text-center">
     <h2>Weather Forecast</h2>
-    <table>
+    <table class="table table-bordered">
         <tr>
             <td>
                 <strong>City:</strong> @Model.City, @Model.Country
@@ -31,15 +32,15 @@
         </tr>
         <tr>
             <td>
-                <strong>Temperature:</strong> @Model.Temp<br />
-                <strong>Feels Like:</strong> @Model.FeelsLike<br />
-                <strong>Temp (Min):</strong> @Model.TempMin<br />
-                <strong>Temp (Max):</strong> @Model.TempMax<br />
+                <strong>Temperature:</strong> @Model.Temp ºF<br />
+                <strong>Feels Like:</strong> @Model.FeelsLike ºF<br />
+                <strong>Temp (Min):</strong> @Model.TempMin ºF<br />
+                <strong>Temp (Max):</strong> @Model.TempMax ºF<br />
             </td>
         </tr>
         <tr>
             <td>
-                <strong>Humidity:</strong> @Model.Humidity
+                <strong>Humidity:</strong> @Model.Humidity %
             </td>
         </tr>
         <tr>

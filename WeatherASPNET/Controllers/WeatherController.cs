@@ -19,16 +19,30 @@ namespace WeatherASPNET.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Index(string zipCode)
         {
             var weather = new Weather();
+
+            if (zipCode == null)
+            {
+                return View(weather);
+            }
+
+            weather = repo.GetAPIResponse(zipCode);
 
             return View(weather);
         }
 
         public IActionResult Weather(string zipCode)
         {
-            var weather = repo.GetAPIResponse(zipCode);
+            var weather = new Weather();
+
+            if (zipCode == null)
+            {
+                return View(weather);
+            }
+
+            weather = repo.GetAPIResponse(zipCode);
 
             return View(weather);
         }
