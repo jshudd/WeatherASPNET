@@ -31,7 +31,7 @@ namespace WeatherASPNET.Controllers
             {
                 weather = repo.GetAPIResponse(zipCode);
             }
-            catch (AggregateException ex)
+            catch (AggregateException)
             {
                 return RedirectToAction("Index", "Weather");
             }

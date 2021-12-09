@@ -59,11 +59,17 @@
                 <strong>Sunset:</strong> @Model.Sunset.ToLocalTime().ToString("h:mm tt") Central Time<br />
             </td>
         </tr>
-        <tr>
+        @*<tr>
             <td>
                 <strong>Latitude:</strong> @Model.Coordinate.Latitude<br />
                 <strong>Longitude:</strong> @Model.Coordinate.Longitude
             </td>
-        </tr>
+        </tr>*@
     </table>
+</div>
+
+<div class="text-center">
+    <iframe width="600" height="450" style="border:0" loading="lazy"
+            src="@Model.MapsURL">
+    </iframe>
 </div>

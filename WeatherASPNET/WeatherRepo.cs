@@ -53,6 +53,13 @@ namespace WeatherASPNET
             var sunsetOffset = DateTimeOffset.FromUnixTimeSeconds(sunset);
             weather.Sunset = sunsetOffset.DateTime;
 
+            //get Google Maps key
+            var key = System.IO.File.ReadAllText("appsettings.json");
+            weather.MapsKey = JObject.Parse(key).GetValue("MapsKey").ToString();
+
+            //generate Google Maps embed address
+            weather.MapsURL = $"https://www.google.com/maps/embed/v1/view?&key={weather.MapsKey}&center={weather.Coordinate.Latitude},{weather.Coordinate.Longitude}&zoom=8&maptype=satellite";
+
             return weather;
         }
     }

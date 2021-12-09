@@ -25,5 +25,7 @@ namespace WeatherASPNET.Models
         public string Country { get; set; }
         public DateTime Sunrise { get; set; }
         public DateTime Sunset { get; set; }
+        public string MapsKey { get; set; }
+        public string MapsURL { get; set; }
     }
 }
