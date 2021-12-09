@@ -12,6 +12,7 @@ namespace WeatherASPNET.Models
         public Coord Coordinate { get; set; }
         public string WxCondition { get; set; }
         public string WxDescription { get; set; }
+        public string WxIcon { get; set; }
         public double Temp { get; set; }
         public double FeelsLike { get; set; }
         public double TempMax { get; set; }

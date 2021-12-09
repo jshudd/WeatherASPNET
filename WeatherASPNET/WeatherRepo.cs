@@ -30,8 +30,9 @@ namespace WeatherASPNET
             coord.Longitude = double.Parse(JObject.Parse(weather.APIResponse)["coord"]["lon"].ToString());
             weather.Coordinate = coord;
 
-            //weather.WxCondition = JArray.Parse(weather.APIResponse)["weather"]["main"].ToString();
-            //weather.WxDescription = JArray.Parse(weather.APIResponse)["weather"]["description"].ToString();
+            weather.WxCondition = JObject.Parse(weather.APIResponse)["weather"][0]["main"].ToString();
+            weather.WxDescription = JObject.Parse(weather.APIResponse)["weather"][0]["description"].ToString();
+            weather.WxIcon = JObject.Parse(weather.APIResponse)["weather"][0]["icon"].ToString();
             weather.Temp = double.Parse(JObject.Parse(weather.APIResponse)["main"]["temp"].ToString());
             weather.FeelsLike = double.Parse(JObject.Parse(weather.APIResponse)["main"]["feels_like"].ToString());
             weather.TempMax = double.Parse(JObject.Parse(weather.APIResponse)["main"]["temp_max"].ToString());

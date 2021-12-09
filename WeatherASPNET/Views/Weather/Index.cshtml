@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Current Weather";
 }
 
 @model Weather
@@ -7,15 +7,14 @@
 <div class="text-center">
     <h1 class="display-4">Get Current Weather</h1>
     <p>Enter your Zip Code below to get the current weather.</p>
-    <p>(this is Index.cshtml)</p>
 </div>
 
-<div>
+<div style="width: 10%; margin: 0 auto" class="text-center">
     @using (Html.BeginForm("Index", "Weather", FormMethod.Get))
     {
         <label asp-for="ZipCode" class="control-label">Zip Code</label>
 
-        <input type="text" name="ZipCode" class="form-control" value="@Model.ZipCode" />
+        <input type="text" name="ZipCode" class="form-control" value="@Model.ZipCode" maxlength="5"/>
         <br />
 
         <input type="submit" value="Enter" class="btn btn-primary" />
@@ -23,24 +22,35 @@
 </div>
 <br />
 <div class="text-center">
-    <h2>Weather Forecast</h2>
-    <table class="table table-bordered">
-        <tr>
-            <td>
-                <strong>City:</strong> @Model.City, @Model.Country
-            </td>
-        </tr>
+    <h2>@Model.City</h2>
+
+    @if (Model.WxIcon == null)
+    {
+        <img src="@Html.Raw($"http://openweathermap.org/img/wn/02d@2x.png")" alt="cond pic">
+    }
+    else
+    {
+        <img src="@Html.Raw($"http://openweathermap.org/img/wn/{Model.WxIcon}@2x.png")" alt="cond pic">
+
+    }
+
+    <h3>@Model.WxCondition</h3>
+    <h4>@Model.WxDescription</h4>
+
+    <table class="table">
         <tr>
             <td>
                 <strong>Temperature:</strong> @Model.Temp ºF<br />
                 <strong>Feels Like:</strong> @Model.FeelsLike ºF<br />
-                <strong>Temp (Min):</strong> @Model.TempMin ºF<br />
-                <strong>Temp (Max):</strong> @Model.TempMax ºF<br />
+                <strong>High:</strong> @Model.TempMax ºF<br />
+                <strong>Low:</strong> @Model.TempMin ºF<br />
             </td>
         </tr>
         <tr>
             <td>
-                <strong>Humidity:</strong> @Model.Humidity %
+                <strong>Humidity:</strong> @Model.Humidity %<br />
+                <strong>Pressure:</strong> @Math.Round((@Model.Pressure * 0.02953), 2) inHg <br />
+                <strong>Wind Speed:</strong> @Model.WindSpeed mph
             </td>
         </tr>
         <tr>
