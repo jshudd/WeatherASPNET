@@ -26,11 +26,11 @@
 
     @if (Model.WxIcon == null)
     {
-        <img src="@Html.Raw($"http://openweathermap.org/img/wn/02d@2x.png")" alt="cond pic">
+        <img src="@Html.Raw($"http://openweathermap.org/img/wn/02d@2x.png")" alt="condition pic">
     }
     else
     {
-        <img src="@Html.Raw($"http://openweathermap.org/img/wn/{Model.WxIcon}@2x.png")" alt="cond pic">
+        <img src="@Html.Raw($"http://openweathermap.org/img/wn/{Model.WxIcon}@2x.png")" alt="condition pic">
 
     }
 
