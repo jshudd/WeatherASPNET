@@ -9,17 +9,22 @@
     <p>Enter your Zip Code below to get the current weather.</p>
 </div>
 
-<div style="width: 15%; margin: 0 auto" class="text-center">
-    @using (Html.BeginForm("Index", "Weather", FormMethod.Get))
-    {
-        <label asp-for="ZipCode" class="control-label">Zip Code</label>
 
-        <input type="text" name="ZipCode" class="form-control" value="@Model.ZipCode" maxlength="5"/>
-        <br />
+<div style="width: 20%; margin: 0 auto" class="text-center">
+    <div class="form-row align-items-center">
+        @using (Html.BeginForm("Index", "Weather", FormMethod.Get))
+        {
+            <label asp-for="ZipCode" class="control-label"><b>Zip Code</b></label>
+            <div class="form-group">
+                <input type="text" name="ZipCode" class="form-control text-center" value="@Model.ZipCode" maxlength="5" />
+            </div>
+            <br />
 
-        <input type="submit" value="Enter" class="btn btn-primary" />
-    }
+            <input type="submit" value="Enter" class="btn btn-primary" />
+        }
+    </div>
 </div>
+
 <br />
 <div class="text-center">
     <h2>@Model.City</h2>
@@ -68,8 +73,10 @@
     </table>
 </div>
 
-<div class="text-center">
-    <iframe width="600" height="450" style="border:0" loading="lazy"
-            src="@Model.MapsURL">
-    </iframe>
+<div class="map-responsive align-items-center">
+    <div class="text-center">
+        <iframe width="600" height="450" style="border:0" loading="lazy"
+                src="@Model.MapsURL" allowfullscreen>
+        </iframe>
+    </div>
 </div>
