@@ -58,12 +58,14 @@
                 <strong>Wind Speed:</strong> @Model.WindSpeed mph
             </td>
         </tr>
-        @*<tr>
+        <tr>
             <td>
-                <strong>Sunrise:</strong> @Model.Sunrise.ToLocalTime().ToString("h:mm tt") Central Time<br />
-                <strong>Sunset:</strong> @Model.Sunset.ToLocalTime().ToString("h:mm tt") Central Time<br />
+                @*<strong>Sunrise:</strong> @Model.Sunrise.ToLocalTime().ToString("h:mm tt") Central Time<br />*@
+                @*<strong>Sunset:</strong> @Model.Sunset.ToLocalTime().ToString("h:mm tt") Central Time<br />*@
+                <strong>Sunrise:</strong> @Model.Sunrise Central Time<br />
+                <strong>Sunset:</strong> @Model.Sunset Central Time<br />
             </td>
-        </tr>*@
+        </tr>
         @*<tr>
                 <td>
                     <strong>Latitude:</strong> @Model.Coordinate.Latitude<br />

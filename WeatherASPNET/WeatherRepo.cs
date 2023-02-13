@@ -47,11 +47,11 @@ namespace WeatherASPNET
             //calculate Sunrise & Sunset
             var sunrise = long.Parse(JObject.Parse(weather.APIResponse)["sys"]["sunrise"].ToString());
             var sunriseOffset = DateTimeOffset.FromUnixTimeSeconds(sunrise);
-            weather.Sunrise = sunriseOffset.DateTime;
+            weather.Sunrise = sunriseOffset.DateTime.ToLocalTime().ToString("h:mm tt");
 
             var sunset = long.Parse(JObject.Parse(weather.APIResponse)["sys"]["sunset"].ToString());
             var sunsetOffset = DateTimeOffset.FromUnixTimeSeconds(sunset);
-            weather.Sunset = sunsetOffset.DateTime;
+            weather.Sunset = sunsetOffset.DateTime.ToLocalTime().ToString("h:mm tt");
 
             //get Google Maps key
             var key = System.IO.File.ReadAllText("appsettings.json");
