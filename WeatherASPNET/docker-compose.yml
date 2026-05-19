@@ -1,0 +1,18 @@
+﻿version: '3.8'
+
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${REGISTRY:-ghcr.io}/${IMAGE_NAME:-yourusername/yourapp}:${TAG:-latest}
+    container_name: mywebapp
+    restart: unless-stopped
+    ports:
+      - "8080:8080"          # Change host port if needed
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      # Add other settings here or use .env file
+      # - ConnectionStrings__DefaultConnection=...
+    # volumes:
+    #   - ./appsettings.Production.json:/app/appsettings.Production.json:ro   # Optional
