@@ -23,8 +23,8 @@ namespace WeatherASPNET.Models
         public double WindSpeed { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
-        public DateTime Sunrise { get; set; }
-        public DateTime Sunset { get; set; }
+        public string Sunrise { get; set; }
+        public string Sunset { get; set; }
         public string MapsKey { get; set; }
         public string MapsURL { get; set; }
     }
